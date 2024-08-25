@@ -81,6 +81,18 @@ def create_sample(shape, motion, frame_size, n_frames):
             else:
                 rect = (position[0] - shape_size, position[1] - shape_size, shape_size*2, shape_size*2)
                 frame = cv2.rectangle(canvas, rect, 255, -1)
+        elif shape == "noise":
+            # here we take a different approach, i.e. we create a large noise frame, to which we apply the motion and afterwards crop it
+            if step == 0:
+                noise_frame = np.random.randint(0, 2, (4*frame_size, 4*frame_size), dtype=np.uint8) * 255
+            if motion == "rotation":
+                angle = max_rotation/4 * t
+                rot_point = (2*frame_size, 2*frame_size)
+                rot_mat = cv2.getRotationMatrix2D(rot_point, np.degrees(angle), 1.0)
+                frame = cv2.warpAffine(noise_frame, rot_mat, noise_frame.shape, flags=cv2.INTER_LINEAR)
+                frame = frame[int(2*frame_size)-position[1]:int(3*frame_size)-position[1], int(2*frame_size)-position[0]:int(3*frame_size)-position[0]]
+            else:
+                frame = noise_frame[int(2*frame_size)-position[1]:int(3*frame_size)-position[1], int(2*frame_size)-position[0]:int(3*frame_size)-position[0]]
 
         # frame = np.clip(frame, 0, 1)
         frames[step] = frame
