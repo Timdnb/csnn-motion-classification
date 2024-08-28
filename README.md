@@ -19,10 +19,11 @@ When running in Google Colab or Kaggle:
 4. Run!
 
 ## File structure
-
+```
 ├── .gitignore                          -> contains files which Git should ignore
 ├── CSNN_training.ipynb                 -> Jupyter notebook containing all code to train and investigate CSNNs
 ├── dataset_showcase.ipynb              -> Jupyter notebook used to showcase all types of datasamples that can be generated
 ├── README.md                           -> general README of the repository
 ├── requirements.txt                    -> file containing all necessary libraries
 └── utils.py                            -> helper file containing functions used in the other notebooks
+```
