@@ -3,4 +3,6 @@
 /models
 /animations
 /wandb
+/lightning_logs
+/SNN-motion-classification
 *.pyc
