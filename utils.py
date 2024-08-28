@@ -125,18 +125,19 @@ def make_event_based(frames):
 
     return events
 
-def animate(frames, filename):
-    """ Animates the frames and saves the animation as a GIF.
+def animate(frames_list, filename):
+    """ Animates multiple frames and saves the animation as a GIF.
 
     Args:
-        frames (np.array): The frames to animate.
+        frames_list (list of np.array): A list of frame arrays to animate.
         filename (str): The filename to save the animation as.
 
     Returns:
         Image: The animation.
     """
-    # Get the number of frames
-    n_frames = frames.shape[0]
+    n_animations = len(frames_list)
+    if n_animations < 1:
+        raise ValueError("frames_list must contain at least one frame array.")
 
     # Define a custom colormap
     colors = [(1, 0, 0), (0.5, 0.5, 0.5), (0, 1, 0)]  # Red -> Gray -> Green
@@ -144,12 +145,23 @@ def animate(frames, filename):
     cmap_name = 'custom_cmap'
     cmap = LinearSegmentedColormap.from_list(cmap_name, colors, N=n_bins)
 
-    # Create the animation
-    fig = plt.figure()
+    # Create the figure
+    fig, axs = plt.subplots(1, n_animations, figsize=(4 * n_animations, 4))  # Dynamic figure size
+
+    # Ensure axs is always a list (even if there's only one animation)
+    if n_animations == 1:
+        axs = [axs]
+
     ims = []
+    n_frames = frames_list[0].shape[0]  # Assumes all have the same number of frames
     for i in range(n_frames):
-        im = plt.imshow(frames[i], animated=True, vmin=-1, vmax=1, cmap=cmap)
-        ims.append([im])
+        row_ims = []
+        for j in range(n_animations):
+            ax = axs[j]
+            im = ax.imshow(frames_list[j][i], animated=True, vmin=-1, vmax=1, cmap=cmap)
+            ax.axis('off')
+            row_ims.append(im)
+        ims.append(row_ims)
 
     ani = animation.ArtistAnimation(fig, ims, interval=100, blit=True, repeat_delay=1000)
 
@@ -226,6 +238,7 @@ def spiking_overview(spks, events, input_dim, filename, h_dist_between_graphs=32
         im = plt.imshow(canvas, animated=True, vmin=-1, vmax=2, cmap=cmap, interpolation='none')
         text = plt.text(10, -10, f'Frame: {step}', color='white', bbox=dict(facecolor='black', alpha=0.5))
         ims.append([im, text])
+        plt.axis('off')
 
     ani = animation.ArtistAnimation(fig, ims, interval=500, blit=True, repeat_delay=1000)
 
