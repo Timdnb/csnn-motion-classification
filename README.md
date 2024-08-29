@@ -18,6 +18,9 @@ When running in Google Colab or Kaggle:
 3. Copy utils.py into working directory
 4. Run!
 
+## Parameter analysis
+The `CSNN_training.ipynb` notebook has been used to perform a paramaters analysis of CSNN. All runs performed as part of this study are logged using Weights and Biases and can be found [here](https://wandb.ai/timdb/CSNN-motion-classification).
+
 ## File structure
 ```
 ├── .gitignore                          -> contains files which Git should ignore
