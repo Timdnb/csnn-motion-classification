@@ -19,7 +19,7 @@ When running in Google Colab or Kaggle:
 4. Run!
 
 ## Parameter analysis
-The `CSNN_training.ipynb` notebook has been used to perform a paramaters analysis of CSNN. All runs performed as part of this study are logged using Weights and Biases and can be found [here](https://wandb.ai/timdb/CSNN-motion-classification).
+The `CSNN_training.ipynb` notebook has been used to perform a paramaters analysis of CSNNs. All runs performed as part of this study are logged using Weights and Biases and can be found [here](https://wandb.ai/timdb/CSNN-motion-classification).
 
 ## File structure
 ```
