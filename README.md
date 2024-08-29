@@ -1,5 +1,5 @@
 # CSNN motion classification
-This repository contains all code created for the project of the course AE4350 Bio-inspired Intelligence and Learning for Aerospace Applications. This project investigates convolutional spiking neural networks and their effectivity in classifying planar motions and rotations. 
+This repository contains all code created for the project of the course AE4350 Bio-inspired Intelligence and Learning for Aerospace Applications at the Delft University of Technology. This project investigates convolutional spiking neural networks and their effectivity in classifying planar motions and rotations. 
 
 ## How to run?
 When running locally (tested on Python 3.9.7):
