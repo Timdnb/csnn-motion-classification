@@ -21,6 +21,21 @@ When running in Google Colab or Kaggle:
 ## Parameter analysis
 The `CSNN_training.ipynb` notebook has been used to perform a paramaters analysis of CSNNs. All runs performed as part of this study are logged using Weights and Biases and can be found [here](https://wandb.ai/timdb/CSNN-motion-classification).
 
+## Some GIFs
+All possible motion samples using a square (a circle or noise pattern is possible too).
+
+![samples](assets/all_motions_squares.gif)
+
+And now converted to events: green is a positive brightness change while red is a negative brightness change
+
+![events](assets/all_motions_squares_events.gif)
+
+The `utils.py` file also includes a function to investigate the spiking behavior of the networks. Here you can see that for every frame the fifth output neuron spikes, which corresponds to "rotation".
+
+<p align="center">
+  <img src="assets/spiking_overview.gif" />
+</p>
+
 ## File structure
 ```
 ├── .gitignore                          -> contains files which Git should ignore
