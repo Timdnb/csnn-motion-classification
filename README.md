@@ -41,7 +41,7 @@ The `utils.py` file also includes a function to investigate the spiking behavior
 ├── assets                              -> folder containing supporting asset files
 │   ├── all_motions_squares.gif         -> GIF showing all motion samples with square shape
 │   ├── all_motions_squares_events.gif  -> GIF showing event-based version of all motion samples with square shape
-│   ├── spiking_overview.gif            -> GIF showing spiking behavior of a model
+│   └── spiking_overview.gif            -> GIF showing spiking behavior of a model
 ├── .gitignore                          -> contains files which Git should ignore
 ├── CSNN_training.ipynb                 -> Jupyter notebook containing all code to train and investigate CSNNs
 ├── README.md                           -> general README of the repository
