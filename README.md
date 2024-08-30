@@ -38,10 +38,15 @@ The `utils.py` file also includes a function to investigate the spiking behavior
 
 ## File structure
 ```
+├── assets                              -> folder containing supporting asset files
+│   ├── all_motions_squares.gif         -> GIF showing all motion samples with square shape
+│   ├── all_motions_squares_events.gif  -> GIF showing event-based version of all motion samples with square shape
+│   ├── spiking_overview.gif            -> GIF showing spiking behavior of a model
 ├── .gitignore                          -> contains files which Git should ignore
 ├── CSNN_training.ipynb                 -> Jupyter notebook containing all code to train and investigate CSNNs
 ├── README.md                           -> general README of the repository
 ├── dataset_showcase.ipynb              -> Jupyter notebook used to showcase all types of datasamples that can be generated
+├── report.pdf                          -> report written for this project
 ├── requirements.txt                    -> file containing all necessary libraries
 └── utils.py                            -> helper file containing functions used in the other notebooks
 ```
